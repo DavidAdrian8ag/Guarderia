@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Guardería Pequeños Exploradores</title>
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+   <style>
+      :root {
+         --bg: #f7fbff;
+         --card: #ffffff;
+         --primary-1: #ffb3c6;
+         --primary-2: #ffd275;
+         --primary-3: #a7e9af;
+         --accent: #9ad1ff;
+         --muted: #6b7280;
+         --radius: 18px;
+         --shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+      }
+
+      * {
+         box-sizing: border-box
+      }
+
+      html,
+      body {
+         height: 100%;
+         margin: 0;
+         font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+         color: #1f2937;
+         background: var(--bg);
+         scroll-behavior: smooth
+      }
+
+      /* NAV */
+      .nav-wrap {
+         position: sticky;
+         top: 12px;
+         z-index: 30;
+         padding: 0 16px
+      }
+
+      nav {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 16px;
+         background: linear-gradient(90deg, var(--card), rgba(255, 255, 255, 0.9));
+         padding: 12px 18px;
+         border-radius: 999px;
+         box-shadow: var(--shadow);
+         backdrop-filter: blur(6px)
+      }
+
+      .brand {
+         display: flex;
+         align-items: center;
+         gap: 12px
+      }
+
+      .logo {
+         width: 48px;
+         height: 48px;
+         border-radius: 12px;
+         background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-weight: 700;
+         color: #fff
+      }
+
+      .brand h3 {
+         margin: 0;
+         font-size: 1.05rem
+      }
+
+      .menu {
+         display: flex;
+         gap: 14px
+      }
+
+      .menu a {
+         color: #374151;
+         text-decoration: none;
+         padding: 8px 12px;
+         border-radius: 12px;
+         font-weight: 500
+      }
+
+      .menu a:hover {
+         background: rgba(0, 0, 0, 0.04)
+      }
+
+      .cta {
+         background: linear-gradient(90deg, var(--accent), var(--primary-3));
+         padding: 8px 12px;
+         border-radius: 12px;
+         color: #fff;
+         text-decoration: none;
+         font-weight: 600
+      }
+
+      /* HERO */
+      .hero {
+         display: grid;
+         grid-template-columns: 1fr 480px;
+         gap: 36px;
+         align-items: center;
+         max-width: 1200px;
+         margin: 36px auto;
+         padding: 28px
+      }
+
+      .hero-left {
+         padding: 18px
+      }
+
+      .eyebrow {
+         display: inline-block;
+         background: linear-gradient(90deg, var(--primary-1), var(--primary-2));
+         padding: 8px 12px;
+         border-radius: 999px;
+         color: #fff;
+         font-weight: 600;
+         margin-bottom: 12px
+      }
+
+      h1 {
+         font-size: 2.6rem;
+         margin: 0 0 12px;
+         line-height: 1.02
+      }
+
+      p.lead {
+         color: var(--muted);
+         font-size: 1.05rem;
+         margin-bottom: 18px
+      }
+
+      .badges {
+         display: flex;
+         gap: 10px;
+         margin-top: 16px
+      }
+
+      .badge {
+         background: #fff;
+         padding: 8px 12px;
+         border-radius: 999px;
+         box-shadow: var(--shadow);
+         font-weight: 600
+      }
+
+      .hero-right {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 14px
+      }
+
+      .card-hero {
+         width: 100%;
+         border-radius: 22px;
+         background: linear-gradient(180deg, #fff, #f9fdff);
+         box-shadow: var(--shadow);
+         padding: 12px;
+      }
+
+      .carousel {
+         position: relative;
+         overflow: hidden;
+         border-radius: 16px
+      }
+
+      .slides {
+         display: flex;
+         transition: transform .6s ease
+      }
+
+      .slide {
+         min-width: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 20px
+      }
+
+      .slide img {
+         width: 100%;
+         height: 260px;
+         object-fit: cover;
+         border-radius: 12px
+      }
+
+      .carousel-controls {
+         position: absolute;
+         left: 12px;
+         right: 12px;
+         top: 50%;
+         transform: translateY(-50%);
+         display: flex;
+         justify-content: space-between
+      }
+
+      .btn-circle {
+         background: rgba(255, 255, 255, 0.85);
+         border-radius: 999px;
+         padding: 8px 10px;
+         box-shadow: 0 6px 16px rgba(16, 24, 40, 0.12);
+         cursor: pointer;
+         border: none
+      }
+
+      /* SECTIONS */
+      section {
+         max-width: 1100px;
+         margin: 0 auto;
+         padding: 28px 18px
+      }
+
+      .grid {
+         display: grid;
+         gap: 20px
+      }
+
+      /* Services */
+      .services {
+         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .service-card {
+         background: var(--card);
+         padding: 18px;
+         border-radius: 16px;
+         box-shadow: var(--shadow);
+         transition: transform .28s, box-shadow .28s
+      }
+
+      .service-card:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 22px 50px rgba(16, 24, 40, 0.12)
+      }
+
+      .icon {
+         width: 54px;
+         height: 54px;
+         border-radius: 12px;
+         display: inline-grid;
+         place-items: center;
+         margin-bottom: 12px
+      }
+
+      /* About / Values */
+      .about {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 24px;
+         align-items: center
+      }
+
+      .about-card {
+         background: linear-gradient(90deg, var(--primary-1), var(--primary-3));
+         padding: 20px;
+         border-radius: 18px;
+         color: #1f2937;
+         box-shadow: var(--shadow)
+      }
+
+      /* Gallery */
+      .gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+         gap: 12px
+      }
+
+      .gallery img {
+         width: 100%;
+         height: 160px;
+         object-fit: cover;
+         border-radius: 12px;
+         box-shadow: var(--shadow);
+         transition: transform .28s
+      }
+
+      .gallery img:hover {
+         transform: scale(1.03)
+      }
+
+      /* Contact */
+      .contact-wrap {
+         display: grid;
+         grid-template-columns: 1fr 380px;
+         gap: 20px
+      }
+
+      form {
+         background: var(--card);
+         padding: 18px;
+         border-radius: 14px;
+         box-shadow: var(--shadow)
+      }
+
+      label {
+         display: block;
+         font-weight: 600;
+         margin-bottom: 6px
+      }
+
+      input,
+      textarea,
+      select {
+         width: 100%;
+         padding: 10px;
+         border-radius: 10px;
+         border: 1px solid #e6e9ee;
+         margin-bottom: 12px;
+         font-size: 0.95rem
+      }
+
+      .btn {
+         background: linear-gradient(90deg, var(--accent), var(--primary-3));
+         color: #fff;
+         padding: 10px 14px;
+         border-radius: 12px;
+         border: none;
+         cursor: pointer;
+         font-weight: 700
+      }
+
+      /* Footer */
+      footer {
+         padding: 26px;
+         text-align: center;
+         color: var(--muted)
+      }
+
+      /* small screens */
+      @media (max-width:980px) {
+         .hero {
+            grid-template-columns: 1fr;
+            gap: 18px
+         }
+
+         .hero-right {
+            order: -1
+         }
+
+         .about {
+            grid-template-columns: 1fr
+         }
+
+         .contact-wrap {
+            grid-template-columns: 1fr
+         }
+      }
+
+      @media (max-width:560px) {
+         h1 {
+            font-size: 1.8rem
+         }
+
+         .nav-wrap {
+            padding: 0 8px
+         }
+
+         .menu {
+            display: none
+         }
+      }
+
+      /* Reveal animation */
+      .reveal {
+         opacity: 0;
+         transform: translateY(18px);
+         transition: opacity .6s ease, transform .6s ease
+      }
+
+      .reveal.show {
+         opacity: 1;
+         transform: none
+      }
+
+      /* Tiny helpers */
+      .muted {
+         color: var(--muted)
+      }
+
+      .flex {
+         display: flex;
+         gap: 12px;
+         align-items: center
+      }
+   </style>
+</head>
+
+<body>
+   <div class="nav-wrap">
+      <nav>
+         <div class="brand">
+            <div class="logo">PE</div>
+            <div>
+               <h3>Pequeños Exploradores</h3>
+               <div class="muted" style="font-size:.78rem">20 años de experiencia</div>
+            </div>
+         </div>
+         <div class="menu" aria-hidden="false">
+            <a href="#servicios">Servicios</a>
+            <a href="#instalaciones">Instalaciones</a>
+            <a href="#contacto">Contacto</a>
+         </div>
+         <a class="cta" href="#contacto">Reservar visita</a>
+      </nav>
+   </div>
+
+   <!-- HERO -->
+   <main class="hero" role="main">
+      <div class="hero-left">
+         <span class="eyebrow">Cuidado cariñoso</span>
+         <h1>Un lugar donde los niños aprenden jugando</h1>
+         <p class="lead">Estimulación temprana, rutinas seguras y mucho cariño para bebés y niños de 3 meses a 4 años.
+         </p>
+         <div class="badges">
+            <div class="badge">Educación temprana</div>
+            <div class="badge">Personal certificado</div>
+            <div class="badge">Ambiente seguro</div>
+         </div>
+
+         <section id="servicios" style="margin-top:22px">
+            <h2>Servicios</h2>
+            <div class="grid services">
+               <div class="service-card reveal">
+                  <div class="icon" style="background:linear-gradient(90deg,var(--primary-1),var(--primary-2))">🧸</div>
+                  <h3>Guardería diaria</h3>
+                  <p class="muted">Rutinas, alimentación y descanso para la tranquilidad de padres.</p>
+               </div>
+
+               <div class="service-card reveal">
+                  <div class="icon" style="background:linear-gradient(90deg,var(--primary-3),var(--accent))">🎨</div>
+                  <h3>Estimulación temprana</h3>
+                  <p class="muted">Actividades sensoriales y motoras para el desarrollo cognitivo.</p>
+               </div>
+
+               <div class="service-card reveal">
+                  <div class="icon" style="background:linear-gradient(90deg,var(--primary-2),var(--primary-3))">🍎</div>
+                  <h3>Alimentación balanceada</h3>
+                  <p class="muted">Menús diseñados por nutricionistas para niños pequeños.</p>
+               </div>
+
+               <div class="service-card reveal">
+                  <div class="icon" style="background:linear-gradient(90deg,var(--accent),var(--primary-1))">🩺</div>
+                  <h3>Seguimiento de salud</h3>
+                  <p class="muted">Control de crecimiento y protocolos de higiene y seguridad.</p>
+               </div>
+            </div>
+         </section>
+
+      </div>
+
+      <aside class="hero-right">
+         <div class="card-hero">
+            <div class="carousel" aria-roledescription="carousel">
+               <div class="slides" id="slides">
+                  <div class="slide"><img src="foto1.jpg" alt="Niños jugando en área" loading="lazy"></div>
+                  <div class="slide"><img src="foto2.jpg" alt="Actividad artística" loading="lazy"></div>
+                  <div class="slide"><img src="foto3.jpg" alt="Zona de descanso" loading="lazy"></div>
+               </div>
+               <div class="carousel-controls">
+                  <button class="btn-circle" id="prev" aria-label="Anterior">◀</button>
+                  <button class="btn-circle" id="next" aria-label="Siguiente">▶</button>
+               </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px">
+               <small class="muted">Galería de la guardería</small>
+               <small class="muted">Autoplay • Pausa al interactuar</small>
+            </div>
+         </div>
+      </aside>
+   </main>
+
+   <!-- INSTALACIONES / ABOUT -->
+   <section id="instalaciones">
+      <div class="about">
+         <div class="about-copy reveal">
+            <h2>Nuestras instalaciones</h2>
+            <p class="muted">Espacios diseñados para la exploración segura: áreas de juego, salón de estimulación,
+               comedor y zona de descanso con supervisión constante.</p>
+            <ul class="muted">
+               <li>Salones amplios y ventilados</li>
+               <li>Protocolos de higiene y seguridad</li>
+               <li>Equipo didáctico y material Montessori básico</li>
+            </ul>
+         </div>
+         <div class="about-card reveal">
+            <h3>Valores</h3>
+            <p><strong>Amor</strong>, <strong>respeto</strong> y <strong>curiosidad</strong>. Fomentamos la autonomía y
+               el vínculo con las familias en un ambiente estable.</p>
+         </div>
+      </div>
+   </section>
+
+   <!-- GALLERY -->
+   <section>
+      <h2 style="text-align:center">Galería</h2>
+      <div class="gallery reveal">
+         <img src="foto4.jpg" alt="Juegos educativos">
+         <img src="foto5.jpg" alt="Zona exterior">
+         <img src="foto6.jpg" alt="Actividad en círculo">
+         <img src="foto7.jpg" alt="Área de descanso">
+      </div>
+   </section>
+
+   <!-- CONTACT -->
+   <section id="contacto">
+      <h2 style="text-align:center">Contacto</h2>
+      <div class="contact-wrap">
+         <form id="contactForm" aria-label="Formulario de contacto">
+            <label for="name">Nombre del padre o madre</label>
+            <input id="name" name="name" type="text" required placeholder="Ej. María Pérez">
+
+            <label for="child">Nombre del niño/a (opcional)</label>
+            <input id="child" name="child" type="text" placeholder="Ej. Mateo">
+
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" required placeholder="email@ejemplo.com">
+
+            <label for="phone">Teléfono</label>
+            <input id="phone" name="phone" type="tel" placeholder="55 1234 5678">
+
+            <label for="service">Servicio de interés</label>
+            <select id="service" name="service">
+               <option>Guardería diaria</option>
+               <option>Estimulación temprana</option>
+               <option>Reservar visita</option>
+            </select>
+
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="Cuéntanos lo que necesitas"></textarea>
+
+            <div style="display:flex;gap:10px;align-items:center">
+               <button class="btn" type="submit">Enviar mensaje</button>
+               <button id="clearLocal" type="button"
+                  style="background:#eee;color:#111;border-radius:12px;padding:8px 10px;border:none;cursor:pointer">Borrar
+                  borrador</button>
+            </div>
+            <div id="formMsg" style="margin-top:10px;font-weight:600"></div>
+         </form>
+
+         <aside style="background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);height:100%">
+            <h3>Visítanos</h3>
+            <p class="muted">Av. Principal 123, Col. Jardines • Ciudad</p>
+            <p class="muted">Tel: 55 1234 5678</p>
+            <p class="muted">Horario: Lun - Vie 7:30 - 18:30</p>
+            <div style="margin-top:12px">
+               <button class="btn" id="bookVisit">Solicitar visita</button>
+            </div>
+         </aside>
+      </div>
+   </section>
+
+   <footer>
+      <small>© 2025 Guardería Pequeños Exploradores — Todos los derechos reservados</small>
+   </footer>
+
+   <script>
+      /********* Carousel (autoplay + controls) *********/
+      const slides = document.getElementById('slides');
+      const total = slides.children.length;
+      let idx = 0;
+      let autoplay = true;
+      let interval = null;
+
+      function goTo(i) {
+         idx = (i + total) % total;
+         slides.style.transform = `translateX(-${idx * 100}%)`;
+      }
+
+      function next() { goTo(idx + 1); }
+      function prev() { goTo(idx - 1); }
+
+      document.getElementById('next').addEventListener('click', () => { autoplay = false; next(); });
+      document.getElementById('prev').addEventListener('click', () => { autoplay = false; prev(); });
+
+      function startAuto() { interval = setInterval(() => { if (autoplay) next(); }, 3500); }
+      function stopAuto() { clearInterval(interval); interval = null; }
+
+      slides.addEventListener('mouseenter', () => { autoplay = false; });
+      slides.addEventListener('mouseleave', () => { autoplay = true; });
+
+      startAuto();
+
+      /* Pause autoplay when user interacts via keyboard focus */
+      document.querySelectorAll('.btn-circle').forEach(b => b.addEventListener('focus', () => autoplay = false));
+
+      /********* Reveal on scroll (IntersectionObserver) *********/
+      const reveals = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver((entries) => {
+         entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+         });
+      }, { threshold: 0.12 });
+      reveals.forEach(r => obs.observe(r));
+
+      /********* Contact form: local save + validation + fake submission *********/
+      const form = document.getElementById('contactForm');
+      const formMsg = document.getElementById('formMsg');
+      const STORAGE_KEY = 'guarderia_contact_draft';
+
+      // load draft
+      window.addEventListener('load', () => {
+         try {
+            const draft = JSON.parse(localStorage.getItem(STORAGE_KEY));
+            if (draft) { Object.keys(draft).forEach(k => { const el = document.getElementById(k); if (el) el.value = draft[k]; }); formMsg.textContent = 'Borrador cargado'; setTimeout(() => formMsg.textContent = '', 1800); }
+         } catch (e) {/* ignore */ }
+      });
+
+      // autosave
+      ['name', 'child', 'email', 'phone', 'message', 'service'].forEach(id => {
+         const el = document.getElementById(id);
+         if (!el) return;
+         el.addEventListener('input', () => {
+            const data = {};
+            ['name', 'child', 'email', 'phone', 'message', 'service'].forEach(k => { const el2 = document.getElementById(k); data[k] = el2 ? el2.value : ''; });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+         });
+      });
+
+      document.getElementById('clearLocal').addEventListener('click', () => { localStorage.removeItem(STORAGE_KEY); form.reset(); formMsg.textContent = 'Borrador borrado'; setTimeout(() => formMsg.textContent = '', 2000); });
+
+      form.addEventListener('submit', (e) => {
+         e.preventDefault();
+         formMsg.textContent = '';
+         const name = form.name.value.trim();
+         const email = form.email.value.trim();
+         if (!name || !email) { formMsg.style.color = 'crimson'; formMsg.textContent = 'Por favor completa los campos obligatorios.'; return; }
+
+         // fake sending: simulate network
+         formMsg.style.color = 'var(--muted)'; formMsg.textContent = 'Enviando...';
+         setTimeout(() => {
+            // aquí podrías integrar fetch() a tu backend o a un servicio de email (Formspree, Netlify Forms, etc.)
+            localStorage.removeItem(STORAGE_KEY);
+            form.reset();
+            formMsg.style.color = 'green';
+            formMsg.textContent = '¡Mensaje enviado! Nos pondremos en contacto pronto.';
+            setTimeout(() => formMsg.textContent = '', 4500);
+         }, 1200);
+      });
+
+      /* Book visit button -> prefill form */
+      document.getElementById('bookVisit').addEventListener('click', () => {
+         document.getElementById('service').value = 'Reservar visita';
+         window.location.hash = '#contacto';
+         document.getElementById('name').focus();
+      });
+
+      /* Accessibility: keyboard carousel */
+      document.addEventListener('keydown', (e) => {
+         if (e.key === 'ArrowRight') { autoplay = false; next(); }
+         if (e.key === 'ArrowLeft') { autoplay = false; prev(); }
+      });
+
+      // Responsive: re-evaluate slide width on resize (helps transform remain correct)
+      window.addEventListener('resize', () => { goTo(idx); });
+
+   </script>
+</body>
+
+</html>
