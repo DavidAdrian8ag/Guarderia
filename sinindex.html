@@ -522,7 +522,7 @@
     <section id="contacto">
         <h2 style="text-align:center">Contacto</h2>
         <div class="contact-wrap">
-            <form id="contactForm" action="https://formspree.io/f/xzzqgegb" method="POST">
+            <form id="contactForm" aria-label="Formulario de contacto">
                 <label for="name">Nombre del padre o madre</label>
                 <input id="name" name="name" type="text" required placeholder="Ej. María Pérez">
 
@@ -636,7 +636,7 @@
         document.getElementById('clearLocal').addEventListener('click', () => { localStorage.removeItem(STORAGE_KEY); form.reset(); formMsg.textContent = 'Borrador borrado'; setTimeout(() => formMsg.textContent = '', 2000); });
 
         form.addEventListener('submit', (e) => {
-            // e.preventDefault(); // disabled for real submission
+            e.preventDefault();
             formMsg.textContent = '';
             const name = form.name.value.trim();
             const email = form.email.value.trim();
