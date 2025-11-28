@@ -34,8 +34,8 @@
             font-family: Poppins, sans-serif;
             background: var(--bg);
             color: #333;
-            padding-top: 90px;
-            padding-bottom: 70px;
+            padding: 0;
+            /* ← quitar espacio extra */
         }
 
         /********** NAV **********/
@@ -46,14 +46,11 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            backdrop-filter: blur(6px);
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            position: static;
+            /* ← deja de ser fijo */
         }
+
 
         nav h3 {
             margin: 0;
@@ -337,13 +334,8 @@
             color: white;
             padding: 16px;
             text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.15);
+            position: static;
+            /* ← deja de ser fijo */
         }
 
         /********** RESPONSIVE **********/
