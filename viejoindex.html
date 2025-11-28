@@ -5,11 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Guardería Querubines</title>
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png" />
-
-    <!-- Fuente Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -35,7 +30,9 @@
             background: var(--bg);
             color: #333;
             padding-top: 90px;
+            /* Ajusta según altura del nav */
             padding-bottom: 70px;
+            /* Ajusta según altura del footer */
         }
 
         /********** NAV **********/
@@ -51,8 +48,6 @@
             left: 0;
             right: 0;
             z-index: 999;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
         }
 
         nav h3 {
@@ -124,6 +119,21 @@
             box-shadow: var(--shadow);
         }
 
+        /********** BUTTONS **********/
+        .btn {
+            background: var(--rosa);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e0438f;
+        }
+
         /********** CAROUSEL **********/
         .carousel {
             overflow: hidden;
@@ -143,6 +153,15 @@
             border-radius: 20px;
         }
 
+        .btn-circle {
+            background: white;
+            border-radius: 50%;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
         /********** SECTIONS **********/
         section {
             max-width: 1100px;
@@ -159,7 +178,99 @@
             font-weight: 700;
         }
 
-        /********** SERVICIOS PREMIUM **********/
+        /********** SERVICIOS **********/
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 0;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            text-align: center;
+            transition: transform .25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .icon-header {
+            padding: 22px 0;
+            font-size: 2.2rem;
+            color: white;
+        }
+
+        .service1 {
+            background: var(--rosa);
+        }
+
+        .service2 {
+            background: var(--azul);
+        }
+
+        .service3 {
+            background: var(--verde);
+        }
+
+        .service4 {
+            background: var(--amarillo);
+            color: #333;
+        }
+
+        /********** CONTACTO **********/
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+        }
+
+        form {
+            background: white;
+            padding: 18px;
+            box-shadow: var(--shadow);
+            border-radius: 16px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background: var(--rosa);
+            color: white;
+            padding: 16px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        @media (max-width: 960px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- SERVICIOS PREMIUM --- */
+
         .services-premium {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -167,6 +278,7 @@
             margin-top: 35px;
         }
 
+        /* Tarjeta principal */
         .service-premium {
             background: linear-gradient(135deg, #ffffff, #fff1fb);
             border-radius: 20px;
@@ -183,6 +295,7 @@
             box-shadow: 0 20px 36px rgba(0, 0, 0, 0.15);
         }
 
+        /* Icono */
         .service-icon {
             font-size: 2.4rem;
             background: white;
@@ -195,6 +308,7 @@
             flex-shrink: 0;
         }
 
+        /* Título */
         .service-title {
             font-size: 1.15rem;
             font-weight: 700;
@@ -204,6 +318,7 @@
             color: transparent;
         }
 
+        /* Descripción */
         .service-desc {
             margin: 0;
             color: var(--muted);
@@ -211,7 +326,7 @@
             line-height: 1.36rem;
         }
 
-        /********** MISIÓN VISIÓN VALORES **********/
+        /* --- MISIÓN, VISIÓN Y VALORES --- */
         .mvv-section {
             max-width: 1100px;
             margin: 0 auto 50px;
@@ -247,8 +362,8 @@
             display: grid;
             place-items: center;
             margin: 0 auto 12px;
-            background: #fff;
             box-shadow: var(--shadow);
+            background: #fff;
         }
 
         .mvv-title {
@@ -266,6 +381,7 @@
             line-height: 1.38rem;
         }
 
+        /* Animación reveal */
         .reveal-up {
             opacity: 0;
             transform: translateY(30px);
@@ -277,41 +393,7 @@
             transform: translateY(0);
         }
 
-        /********** CONTACTO **********/
-        .contact-wrap {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 24px;
-        }
-
-        form {
-            background: white;
-            padding: 18px;
-            box-shadow: var(--shadow);
-            border-radius: 16px;
-        }
-
-        form label {
-            font-weight: 600;
-            color: var(--rosa);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-            margin-top: 6px;
-            font-size: 0.95rem;
-        }
-
-        textarea {
-            resize: none;
-            height: 120px;
-        }
-
+        /* Botón del formulario igual que "Reservar visita" */
         .btn-enviar {
             width: 100%;
             padding: 12px;
@@ -330,31 +412,6 @@
         .btn-enviar:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
-        }
-
-        footer {
-            background: var(--rosa);
-            color: white;
-            padding: 16px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.15);
-        }
-
-        /********** RESPONSIVE **********/
-        @media (max-width: 960px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-wrap {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -398,7 +455,6 @@
         </aside>
     </main>
 
-    <!-- MISIÓN, VISIÓN Y VALORES -->
     <section class="mvv-section">
         <h2>Misión, Visión y Valores</h2>
 
@@ -409,8 +465,8 @@
                 <h3 class="mvv-title">Misión</h3>
                 <p class="mvv-text">
                     Brindar un entorno seguro, afectivo y estimulante donde cada niño pueda desarrollarse plenamente
-                    a través de actividades educativas, recreativas y sociales, respetando su ritmo individual de
-                    aprendizaje.
+                    a través de actividades educativas, recreativas y sociales, respetando su ritmo individual
+                    de aprendizaje.
                 </p>
             </div>
 
@@ -435,6 +491,8 @@
         </div>
     </section>
 
+
+
     <!-- SERVICIOS -->
     <section id="servicios">
         <h2>Servicios</h2>
@@ -446,8 +504,8 @@
                 <div>
                     <h3 class="service-title">Atención para niños de 1 a 4 años</h3>
                     <p class="service-desc">
-                        Programas adaptados según cada etapa del desarrollo infantil, con actividades seguras y
-                        estimulantes.
+                        Programas adaptados según cada etapa del desarrollo infantil, con actividades seguras,
+                        estimulantes y llenas de aprendizaje.
                     </p>
                 </div>
             </div>
@@ -457,7 +515,7 @@
                 <div>
                     <h3 class="service-title">Horario accesible</h3>
                     <p class="service-desc">
-                        Atención continua de <strong>7:30 am a 3:30 pm</strong>, ideal para madres y padres que
+                        Atención continua de <strong>7:30 am a 3:30 pm</strong>, ideal para apoyar a padres y madres que
                         trabajan.
                     </p>
                 </div>
@@ -469,7 +527,7 @@
                     <h3 class="service-title">Servicio de comedor completo</h3>
                     <p class="service-desc">
                         Incluye desayuno, refrigerio y comida, con menús nutritivos pensados para el desarrollo
-                        saludable.
+                        saludable de los pequeños.
                     </p>
                 </div>
             </div>
@@ -479,19 +537,8 @@
                 <div>
                     <h3 class="service-title">Espacios cómodos y seguros</h3>
                     <p class="service-desc">
-                        Aulas climatizadas y área recreativa al aire libre para actividades y convivencia.
-                    </p>
-                </div>
-            </div>
-
-            <!-- NUEVA TARJETA INSTALACIONES CLIMATIZADAS -->
-            <div class="service-premium">
-                <div class="service-icon" style="color:var(--naranja)">❄️</div>
-                <div>
-                    <h3 class="service-title">Instalaciones climatizadas</h3>
-                    <p class="service-desc">
-                        Contamos con aulas completamente climatizadas con aire acondicionado para el confort de todos
-                        los niños.
+                        Contamos con aulas climatizadas y un área recreativa al aire libre para actividades físicas y
+                        convivencia.
                     </p>
                 </div>
             </div>
@@ -501,7 +548,7 @@
                 <div>
                     <h3 class="service-title">Grupos reducidos por edad</h3>
                     <p class="service-desc">
-                        Atención personalizada enfocada en las necesidades y habilidades de cada niño.
+                        Atención personalizada que permite enfocarnos en las necesidades y habilidades de cada niño.
                     </p>
                 </div>
             </div>
@@ -511,7 +558,8 @@
                 <div>
                     <h3 class="service-title">Grupo de Pre-Kinder</h3>
                     <p class="service-desc">
-                        Actividades que desarrollan habilidades clave antes de iniciar educación básica.
+                        Actividades diseñadas para desarrollar habilidades cognitivas, sociales y motrices antes de
+                        iniciar educación básica.
                     </p>
                 </div>
             </div>
@@ -521,7 +569,7 @@
                 <div>
                     <h3 class="service-title">Estimulación temprana</h3>
                     <p class="service-desc">
-                        Actividades lúdicas y de desarrollo integral para maternales.
+                        Actividades lúdicas y de desarrollo integral pensadas especialmente para maternales.
                     </p>
                 </div>
             </div>
@@ -531,7 +579,7 @@
                 <div>
                     <h3 class="service-title">Taller de cantos y juegos</h3>
                     <p class="service-desc">
-                        Fomenta creatividad, expresión y socialización mediante dinámicas divertidas.
+                        Fomenta la creatividad, la expresión y la socialización mediante dinámicas divertidas.
                     </p>
                 </div>
             </div>
@@ -559,77 +607,82 @@
         </div>
     </section>
 
+
     <!-- CONTACTO -->
     <section id="contacto">
         <h2>Contacto</h2>
 
         <div class="contact-wrap">
 
-            <!-- FORMULARIO FUNCIONAL FORMSPREE -->
-            <form class="contact-form" action="https://formspree.io/f/xeowkgad" method="POST">
-
+            <form class="contact-form">
                 <label>
                     Nombre completo*
-                    <input type="text" name="nombre" required placeholder="Escribe tu nombre">
+                    <input type="text" required placeholder="Escribe tu nombre">
                 </label>
 
                 <label>
                     Teléfono*
-                    <input type="tel" name="telefono" required placeholder="Ej. 55 1234 5678">
+                    <input type="tel" required placeholder="Ej. 55 1234 5678">
                 </label>
 
                 <label>
                     Correo electrónico (opcional)
-                    <input type="email" name="email" placeholder="nombre@correo.com">
+                    <input type="email" placeholder="nombre@correo.com">
                 </label>
 
                 <label>
                     Horario preferente de contacto (opcional)
-                    <input type="text" name="horario_preferente" placeholder="Ej. 10:00 a 12:00">
+                    <input type="text" placeholder="Ej. 10:00 a 12:00">
                 </label>
 
                 <label>
                     Mensaje*
-                    <textarea name="mensaje" required placeholder="Escribe tu mensaje"></textarea>
+                    <textarea required placeholder="Escribe tu mensaje"></textarea>
                 </label>
 
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde la página Guardería Querubines">
-
                 <button type="submit" class="btn-enviar">Enviar mensaje</button>
+
             </form>
 
-            <p id="mensaje-exito"
-                style="display:none; color:var(--verde); font-weight:bold; margin-top:12px; padding:6px;">
-                ¡Gracias! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.
-            </p>
 
-            <!-- ASIDE -->
-            <aside style="background:white; padding:18px; border-radius:16px; box-shadow:var(--shadow);">
+            <aside style="background:white;padding:18px;border-radius:16px;box-shadow:var(--shadow);">
 
                 <h3>Visítanos</h3>
 
                 <p class="muted">Horario: Lun - Vie 7:30 - 15:30 hrs</p>
-
                 <p class="muted">
                     WhatsApp:
                     <a href="https://wa.me/5212299068005?text=Buen%20día,%20me%20interesa%20la%20guardería,%20¿me%20podría%20enviar%20mayor%20información%20por%20favor?"
-                        style="color:var(--azul); font-weight:bold" target="_blank">
+                        style="color:var(--azul);font-weight:bold" target="_blank">
                         22 99 06 80 05
                     </a>
                 </p>
+                <br>
+                <p class="muted">Nos ubicamos en Boulevard Jarocho #101, Geo Villas del Puerto (frente al parque del
+                    hongo).</p>
 
-                <p class="muted">
-                    Nos ubicamos en Boulevard Jarocho #101,
-                    Geo Villas del Puerto (frente al parque del hongo).
-                </p>
-
-                <!-- MAPA -->
+                <!-- <p class="muted" style="margin-top:-6px;">
+                    <a href="https://www.google.com/maps?q=19.151870195443006,-96.16774241651041" target="_blank"
+                        style="color:var(--azul); font-weight:bold; text-decoration:none;">
+                        Ver ubicación en Google Maps
+                    </a>
+                </p> -->
                 <div style="margin:15px 0; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);">
                     <iframe width="100%" height="260" style="border:0;" loading="lazy" allowfullscreen
                         referrerpolicy="no-referrer-when-downgrade"
                         src="https://maps.google.com/maps?q=19.151870195443006,-96.16774241651041&z=17&output=embed">
                     </iframe>
                 </div>
+                <br>
+
+
+
+                <br>
+
+
+                <!-- 
+
+                <button class="btn" id="bookVisit">Solicitar visita</button> -->
 
                 <!-- QR -->
                 <div style="margin-top:20px;text-align:center">
@@ -643,12 +696,10 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         © 2025 Guardería Querubines — Todos los derechos reservados
     </footer>
 
-    <!-- JS -->
     <script>
         const slides = document.getElementById("slides");
         let i = 0;
@@ -657,8 +708,10 @@
             slides.style.transform = `translateX(-${i * 100}%)`;
         }, 3000);
 
-        // Reveal
+
+        // Animación reveal para Misión, Visión y Valores
         const revealUpElements = document.querySelectorAll('.reveal-up');
+
         const revealUpObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -670,22 +723,6 @@
 
         revealUpElements.forEach(el => revealUpObserver.observe(el));
 
-        // Formspree AJAX
-        document.querySelector('.contact-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const form = e.target;
-
-            let response = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                document.getElementById('mensaje-exito').style.display = 'block';
-                form.reset();
-            }
-        });
     </script>
 
 </body>
