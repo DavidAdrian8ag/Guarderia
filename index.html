@@ -358,6 +358,21 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+        /* Desktop: aside izquierda, form derecha */
+        .contact-wrap {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 24px;
+        }
+
+        /* Mobile: aside primero, formulario al final */
+        @media (max-width: 768px) {
+            .contact-wrap {
+                flex-direction: column-reverse;
+            }
+        }
     </style>
 </head>
 
@@ -368,7 +383,6 @@
         <h3>Guardería Querubines</h3>
         <div class="menu">
             <a href="#servicios">Servicios</a>
-            <a href="#instalaciones">Instalaciones</a>
             <a href="#contacto">Contacto</a>
         </div>
         <a class="cta" href="#contacto">Reservar visita</a>
