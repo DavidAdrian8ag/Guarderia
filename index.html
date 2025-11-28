@@ -38,26 +38,6 @@
             /* ← quitar espacio extra */
         }
 
-        /********** NAV **********/
-        nav {
-            background: linear-gradient(90deg, var(--rosa), var(--azul), var(--verde), var(--amarillo));
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            position: static;
-            /* ← deja de ser fijo */
-        }
-
-
-        nav h3 {
-            margin: 0;
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-
         .menu a {
             color: white;
             text-decoration: none;
@@ -385,20 +365,58 @@
             margin: 0 auto 12px;
             /* centra y agrega espacio abajo */
         }
+
+        /********** NUEVO NAV MINIMAL **********/
+        .nav-minimal {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            padding: 18px;
+            background: ##fff6fb;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .nav-btn {
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            color: #fff6fb;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+        }
+
+        .rosa-btn {
+            background: var(--rosa);
+        }
+
+        .azul-btn {
+            background: var(--azul);
+        }
+
+        .verde-btn {
+            background: var(--verde);
+        }
     </style>
 </head>
 
 <body>
 
     <!-- NAV -->
-    <nav>
-        <h3>Guardería Querubines</h3>
-        <div class="menu">
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-        </div>
-        <a class="cta" href="#contacto">Reservar visita</a>
+    <nav class="nav-minimal">
+        <a href="#galeria" class="nav-btn rosa-btn">Instalaciones</a>
+        <a href="#servicios" class="nav-btn azul-btn">Servicios</a>
+        <a href="#contacto" class="nav-btn verde-btn">Contacto</a>
     </nav>
+
 
     <!-- HERO -->
     <main class="hero">
@@ -415,7 +433,7 @@
             </div>
         </div>
 
-        <aside>
+        <aside id="galeria">
             <div class="carousel">
                 <div class="slides" id="slides">
                     <div class="slide"><img src="foto1.jpg"></div>
