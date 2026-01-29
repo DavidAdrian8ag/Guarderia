@@ -31,6 +31,7 @@
          color: #333;
       }
 
+      /* Utilidad para gradientes (elimina repetición) */
       .gradient-primary {
          background: linear-gradient(90deg, var(--rosa), var(--azul));
          -webkit-background-clip: text;
@@ -45,6 +46,7 @@
          color: transparent;
       }
 
+      /* Nav */
       .nav-minimal {
          display: flex;
          justify-content: center;
@@ -55,7 +57,6 @@
          position: sticky;
          top: 0;
          z-index: 999;
-         flex-wrap: wrap;
       }
 
       .nav-btn {
@@ -68,8 +69,6 @@
          min-height: 44px;
          display: flex;
          align-items: center;
-         justify-content: center;
-         text-align: center;
       }
 
       .azul-btn {
@@ -80,6 +79,7 @@
          background: var(--verde);
       }
 
+      /* Hero */
       .hero {
          display: grid;
          grid-template-columns: 1fr;
@@ -95,7 +95,6 @@
 
       .logo-hero {
          width: 300px;
-         max-width: 100%;
          display: block;
          margin: 0 auto 12px;
       }
@@ -104,7 +103,6 @@
          font-size: 2.7rem;
          font-weight: 700;
          margin-bottom: 10px;
-         line-height: 1.15;
       }
 
       p.lead {
@@ -121,6 +119,7 @@
          color: #333;
       }
 
+      /* Sections */
       section {
          max-width: 1100px;
          margin: auto;
@@ -133,6 +132,13 @@
          font-weight: 700;
       }
 
+      /* MVV Section */
+      .mvv-section {
+         max-width: 1100px;
+         margin: 0 auto 50px;
+         padding: 0 18px;
+      }
+
       .mvv-grid {
          display: grid;
          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -140,6 +146,7 @@
          margin-top: 25px;
       }
 
+      /* Card base */
       .card-base {
          background: linear-gradient(135deg, #ffffff, #fff1fb);
          border-radius: 20px;
@@ -151,6 +158,58 @@
       .card-base:hover {
          transform: translateY(-6px);
          box-shadow: 0 20px 36px rgba(0, 0, 0, .15);
+      }
+
+      .mvv-card {
+         text-align: center;
+      }
+
+      .mvv-icon {
+         font-size: 2.6rem;
+         width: 70px;
+         height: 70px;
+         border-radius: 16px;
+         display: grid;
+         place-items: center;
+         margin: 0 auto 12px;
+         background: #fff;
+         box-shadow: var(--shadow);
+      }
+
+      .mvv-title {
+         font-size: 1.25rem;
+         font-weight: 700;
+         margin-bottom: 8px;
+      }
+
+      .mvv-text {
+         font-size: .95rem;
+         color: var(--text-dark);
+         line-height: 1.38rem;
+      }
+
+      /* CTA Prominente tras MVV */
+      .cta-prominent {
+         text-align: center;
+         margin: 40px 0;
+      }
+
+      .cta-prominent .btn-primary {
+         padding: 16px 40px;
+         font-size: 1.1rem;
+         min-height: 44px;
+         min-width: 44px;
+      }
+
+      /* Services - Carrusel horizontal */
+      .services-section {
+         position: relative;
+         padding: 0 18px 30px;
+      }
+
+      .services-container {
+         max-width: 1100px;
+         margin: auto;
       }
 
       .services-carousel {
@@ -169,7 +228,11 @@
          min-height: 250px;
          display: flex;
          flex-direction: column;
-         text-align: center;
+      }
+
+      .service-item:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 20px 36px rgba(0, 0, 0, .15);
       }
 
       .service-icon-circle {
@@ -184,29 +247,215 @@
          margin: 0 auto 16px;
       }
 
+      .service-item h3 {
+         font-size: 1.15rem;
+         font-weight: 700;
+         margin: 0 0 12px 0;
+         color: #333;
+      }
+
+      .service-item p {
+         font-size: 0.95rem;
+         color: var(--text-dark);
+         line-height: 1.5;
+         margin: 0;
+         flex-grow: 1;
+      }
+
+      .scroll-hint {
+         text-align: center;
+         color: var(--muted);
+         font-size: 0.85rem;
+         margin-top: 12px;
+      }
+
+      /* Reveal animation */
+      .reveal-up {
+         opacity: 0;
+         transform: translateY(30px);
+         transition: opacity .8s ease, transform .8s ease;
+      }
+
+      .reveal-up.show {
+         opacity: 1;
+         transform: translateY(0);
+      }
+
+      /* Contact - Formulario optimizado */
       .contact-wrap {
          display: flex;
          flex-direction: row-reverse;
          gap: 24px;
       }
 
+      .contact-form-section {
+         flex: 1;
+      }
+
+      .form-quick {
+         background: white;
+         padding: 24px;
+         box-shadow: var(--shadow);
+         border-radius: 16px;
+         margin-bottom: 20px;
+      }
+
+      .form-quick h3 {
+         margin-top: 0;
+         color: var(--rosa);
+         font-size: 1.2rem;
+      }
+
       .form-fields {
          display: grid;
          grid-template-columns: 1fr 1fr;
          gap: 16px;
+         margin-bottom: 16px;
       }
 
-      input,
-      button,
-      textarea {
-         font-family: inherit;
-      }
-
-      iframe {
+      .form-fields input {
          width: 100%;
-         max-width: 100%;
+         padding: 12px;
+         border-radius: 10px;
+         border: 2px solid #ddd;
+         font-size: 0.95rem;
+         min-height: 44px;
+         transition: border-color .2s;
       }
 
+      .form-fields input:focus {
+         outline: none;
+         border-color: var(--azul);
+      }
+
+      .btn-primary {
+         width: 100%;
+         padding: 14px;
+         background: linear-gradient(135deg, var(--rosa), var(--naranja));
+         color: #fff;
+         border: none;
+         border-radius: 10px;
+         font-size: 1rem;
+         font-weight: 700;
+         cursor: pointer;
+         box-shadow: var(--shadow);
+         transition: transform .2s ease, box-shadow .2s ease;
+         min-height: 44px;
+      }
+
+      .btn-primary:hover {
+         transform: translateY(-3px);
+         box-shadow: 0 10px 22px rgba(0, 0, 0, .15);
+      }
+
+      .whatsapp-cta {
+         display: block;
+         width: 100%;
+         padding: 16px;
+         background: var(--verde);
+         color: #fff;
+         text-decoration: none;
+         border-radius: 10px;
+         text-align: center;
+         font-weight: 700;
+         box-shadow: var(--shadow);
+         transition: transform .2s, box-shadow .2s;
+         min-height: 44px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-bottom: 20px;
+      }
+
+      .whatsapp-cta:hover {
+         transform: translateY(-3px);
+         box-shadow: 0 10px 22px rgba(0, 0, 0, .15);
+      }
+
+      .form-complete {
+         background: white;
+         padding: 18px;
+         box-shadow: var(--shadow);
+         border-radius: 16px;
+         display: none;
+      }
+
+      .form-complete.active {
+         display: block;
+      }
+
+      .form-complete label {
+         font-weight: 600;
+         color: var(--rosa);
+      }
+
+      .form-complete input,
+      .form-complete textarea {
+         width: 100%;
+         padding: 10px;
+         border-radius: 10px;
+         border: 1px solid #ddd;
+         margin-bottom: 12px;
+         margin-top: 6px;
+         font-size: .95rem;
+      }
+
+      .form-complete textarea {
+         resize: none;
+         height: 120px;
+      }
+
+      .toggle-form {
+         text-align: center;
+         margin-top: 16px;
+      }
+
+      .toggle-form button {
+         background: none;
+         border: none;
+         color: var(--azul);
+         font-weight: 600;
+         cursor: pointer;
+         text-decoration: underline;
+         padding: 8px;
+      }
+
+      .contact-info {
+         background: white;
+         padding: 24px;
+         border-radius: 16px;
+         box-shadow: var(--shadow);
+      }
+
+      .contact-info h3 {
+         margin-top: 0;
+      }
+
+      .contact-info p {
+         color: var(--text-dark);
+      }
+
+      .phone-number {
+         font-size: 1.4rem;
+         color: #333;
+         font-weight: 700;
+         text-align: center;
+         margin: 16px 0;
+      }
+
+      .contact-info img {
+         border-radius: 10px;
+         box-shadow: var(--shadow);
+         max-width: 100%;
+         height: auto;
+      }
+
+      .contact-info iframe {
+         margin-top: 15px;
+         border-radius: 16px;
+      }
+
+      /* Botón flotante WhatsApp */
       .whatsapp-floating {
          position: fixed;
          bottom: 20px;
@@ -218,8 +467,17 @@
          display: flex;
          align-items: center;
          justify-content: center;
+         font-size: 1.8rem;
+         cursor: pointer;
          box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
          z-index: 998;
+         text-decoration: none;
+         transition: transform .2s, box-shadow .2s;
+      }
+
+      .whatsapp-floating:hover {
+         transform: scale(1.1);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
       }
 
       footer {
@@ -228,10 +486,6 @@
          padding: 16px;
          text-align: center;
       }
-
-      /* ========================= */
-      /* MEJORAS RESPONSIVE EXTRA */
-      /* ========================= */
 
       @media (max-width: 768px) {
          .contact-wrap {
@@ -250,114 +504,54 @@
             padding: 10px 14px;
             font-size: 0.9rem;
          }
-      }
 
-      @media (max-width: 480px) {
-
-         section {
-            padding: 10px 12px 24px;
-         }
-
-         .logo-hero {
-            width: 200px;
-         }
-
-         h1 {
-            font-size: 1.6rem;
-            line-height: 1.2;
-         }
-
-         h2 {
-            font-size: 1.5rem;
-         }
-
-         .badge {
-            font-size: 0.85rem;
-            padding: 6px 10px;
-         }
-
-         .nav-minimal {
-            gap: 10px;
-         }
-
-         .nav-btn {
-            width: 100%;
-         }
-
-         .whatsapp-floating {
-            width: 52px;
-            height: 52px;
+         .service-item {
+            flex: 0 0 240px;
+            min-height: 260px;
          }
       }
    </style>
 </head>
 
-
-<body>
-
-   <!-- NAV -->
-   <nav class="nav-minimal">
-      <a href="#servicios" class="nav-btn azul-btn">Descubre nuestros servicios</a>
-      <a href="#contacto" class="nav-btn verde-btn">Solicita tu información</a>
-   </nav>
-
-   <!-- HERO -->
+<body> <!-- NAV -->
+   <nav class="nav-minimal"> <a href="#servicios" class="nav-btn azul-btn">Descubre nuestros servicios</a> <a
+         href="#contacto" class="nav-btn verde-btn">Solicita tu información</a> </nav> <!-- HERO -->
    <main class="hero centro">
-      <div>
-         <img src="Logo Simple lite.png" alt="Logo Guardería" class="logo-hero">
+      <div> <img src="Logo Simple lite.png" alt="Logo Guardería" class="logo-hero">
          <h1 class="gradient-primary">La guardería donde tu hijo es feliz, seguro y aprende cada día</h1>
-         <p class="lead">
-            Ambiente familiar, atención personalizada y programas de estimulación temprana diseñados para el desarrollo
-            pleno de cada pequeño.
-         </p>
-
+         <p class="lead"> Ambiente familiar, atención personalizada y programas de estimulación temprana diseñados para
+            el desarrollo pleno de cada pequeño. </p>
          <div style="margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap: wrap;">
             <div class="badge">Amor</div>
             <div class="badge">Aprendizaje</div>
             <div class="badge">Seguridad</div>
          </div>
       </div>
-   </main>
-
-   <!-- MISIÓN, VISIÓN Y VALORES -->
+   </main> <!-- MISIÓN, VISIÓN Y VALORES -->
    <section class="mvv-section">
       <h2 class="gradient-secondary">Misión, Visión y Valores</h2>
-
       <div class="mvv-grid">
-
          <div class="mvv-card card-base reveal-up">
             <div class="mvv-icon" style="color:var(--rosa)">🎯</div>
             <h3 class="mvv-title gradient-primary">Misión</h3>
-            <p class="mvv-text">
-               Brindar un entorno seguro, afectivo y estimulante donde cada niño pueda desarrollarse plenamente.
-            </p>
+            <p class="mvv-text"> Brindar un entorno seguro, afectivo y estimulante donde cada niño pueda desarrollarse
+               plenamente. </p>
          </div>
-
          <div class="mvv-card card-base reveal-up">
             <div class="mvv-icon" style="color:var(--azul)">🌈</div>
             <h3 class="mvv-title gradient-primary">Visión</h3>
-            <p class="mvv-text">
-               Ser un centro infantil reconocido por su calidad humana e innovación educativa.
-            </p>
+            <p class="mvv-text"> Ser un centro infantil reconocido por su calidad humana e innovación educativa. </p>
          </div>
-
          <div class="mvv-card card-base reveal-up">
             <div class="mvv-icon" style="color:var(--verde)">💖</div>
             <h3 class="mvv-title gradient-primary">Valores</h3>
-            <p class="mvv-text">
-               Amor, respeto, seguridad, empatía, creatividad y responsabilidad.
-            </p>
+            <p class="mvv-text"> Amor, respeto, seguridad, empatía, creatividad y responsabilidad. </p>
          </div>
-
       </div>
-
-   </section>
-
-   <!-- SERVICIOS - CARRUSEL -->
+   </section> <!-- SERVICIOS - CARRUSEL -->
    <section class="services-section" id="servicios">
       <div class="services-container">
          <h2 class="gradient-secondary">Servicios</h2>
-
          <div class="services-carousel" id="servicesCarousel">
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--rosa)">🧒</div>
@@ -365,219 +559,113 @@
                <p>Programas adaptados según cada etapa del desarrollo infantil, con actividades seguras y estimulantes.
                </p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--azul)">⏰</div>
                <h3>Horario accesible</h3>
                <p>Atención continua de <strong>7:30 am a 3:30 pm</strong>, ideal para madres y padres que trabajan.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--verde)">🍽️</div>
                <h3>Servicio de comedor completo</h3>
                <p>Incluye desayuno, refrigerio y comida, con menús nutritivos pensados para el desarrollo saludable.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--amarillo)">🏫</div>
                <h3>Espacios cómodos y seguros</h3>
                <p>Aulas climatizadas y área recreativa al aire libre para actividades y convivencia.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--naranja)">❄️</div>
                <h3>Instalaciones climatizadas</h3>
                <p>Contamos con aulas completamente climatizadas con aire acondicionado para el confort de todos los
                   niños.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--rosa)">👶</div>
                <h3>Grupos reducidos por edad</h3>
                <p>Atención personalizada enfocada en las necesidades y habilidades de cada niño.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--azul)">📘</div>
                <h3>Grupo de Pre-Kinder</h3>
                <p>Actividades que desarrollan habilidades clave antes de iniciar educación básica.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--verde)">🎨</div>
                <h3>Estimulación temprana</h3>
                <p>Actividades lúdicas y de desarrollo integral para maternales.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--amarillo)">🎵</div>
                <h3>Taller de cantos y juegos</h3>
                <p>Fomenta creatividad, expresión y socialización mediante dinámicas divertidas.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--rosa)">🏠</div>
                <h3>Instalaciones agradables y seguras</h3>
                <p>Espacios diseñados para el bienestar físico y emocional de cada niño.</p>
             </div>
-
             <div class="service-item reveal-up">
                <div class="service-icon-circle" style="color:var(--azul)">🧑‍🏫</div>
                <h3>Personal capacitado</h3>
                <p>Equipo profesional certificado en cuidados infantiles y desarrollo temprano.</p>
             </div>
          </div>
-
       </div>
-   </section>
-
-   <!-- CONTACTO -->
+   </section> <!-- CONTACTO -->
    <section id="contacto">
       <h2 class="gradient-secondary">Contacto</h2>
-
       <div class="contact-wrap">
-
          <div class="contact-info">
             <h3>Contáctanos</h3>
-
-            <p style="color:var(--muted); font-weight:600; margin-top: 20px;">
-               ¿Prefieres atención directa? <br>
-               <span style="color: var(--azul); font-weight: bold;">Llámanos o escríbenos por WhatsApp:</span>
-            </p>
+            <p style="color:var(--muted); font-weight:600; margin-top: 20px;"> ¿Prefieres atención directa? <br> <span
+                  style="color: var(--azul); font-weight: bold;">Llámanos o escríbenos por WhatsApp:</span> </p>
             <div class="phone-number">229 903 6317</div>
-            <p style="color:var(--muted); margin-top:-10px; font-size:0.97em; text-align: center;">
-               ¡Resolvemos tus dudas y te asesoramos personalmente!
-            </p>
-
-            <div style="text-align:center;margin-bottom:10px; margin-top: 20px;">
-               <a href="https://wa.me/5212299036317?text=Buen%20d%C3%ADa%2C%20me%20interesa%20la%20guarder%C3%ADa%2C%20%C2%BFme%20podr%C3%ADa%20dar%20m%C3%A1s%20informes%20por%20favor%3F"
+            <p style="color:var(--muted); margin-top:-10px; font-size:0.97em; text-align: center;"> ¡Resolvemos tus
+               dudas y te asesoramos personalmente! </p>
+            <div style="text-align:center;margin-bottom:10px; margin-top: 20px;"> <a
+                  href="https://wa.me/5212299036317?text=Buen%20d%C3%ADa%2C%20me%20interesa%20la%20guarder%C3%ADa%2C%20%C2%BFme%20podr%C3%ADa%20dar%20m%C3%A1s%20informes%20por%20favor%3F"
                   target="_blank" rel="noopener"
                   style="background:var(--verde); color:#fff; font-weight:bold; border-radius:10px; padding:12px 24px; text-decoration:none; box-shadow:var(--shadow); margin-top:8px; min-height:44px; display:flex; align-items:center; justify-content:center;">
-                  Chatear por WhatsApp
-               </a>
-
-
-            </div>
-
-            <div style="margin-top:20px;text-align:center">
-               <img src="QR WhatApp.png" style="border-radius:10px;box-shadow:var(--shadow);width:170px;height:170px;"
-                  alt="QR WhatsApp">
+                  Chatear por WhatsApp </a> </div>
+            <div style="margin-top:20px;text-align:center"> <img src="QR WhatApp.png"
+                  style="border-radius:10px;box-shadow:var(--shadow);width:170px;height:170px;" alt="QR WhatsApp">
                <small style="display:block;margin-top:4px; color:var(--muted)">O bien, escanea y chatea
-                  directamente<br></small>
-            </div>
+                  directamente<br></small> </div>
          </div>
-
-         <div class="contact-form-section">
-
-            <!-- Formulario Rápido -->
+         <div class="contact-form-section"> <!-- Formulario Rápido -->
             <div class="form-quick">
                <h3>📞 Contacto Rápido</h3>
                <form class="quick-contact-form" id="quickForm" action="https://formspree.io/f/xeowkgad" method="POST">
-                  <div class="form-fields">
-                     <input type="text" name="nombre" placeholder="Tu nombre*" required minlength="3">
-                     <input type="tel" name="telefono" placeholder="Tu teléfono*" required>
-                  </div>
+                  <div class="form-fields"> <input type="text" name="nombre" placeholder="Tu nombre*" required
+                        minlength="3"> <input type="tel" name="telefono" placeholder="Tu teléfono*" required> </div>
                   <input type="hidden" name="_subject" value="Nuevo contacto desde la página Guardería Querubines">
-
                   <button type="submit" class="btn-primary">¡Quiero información!</button>
-               </form>
-
-               <br>
-               <p style="color:var(--text-dark); margin-top: 20px;">
-                  Nos ubicamos en <strong>Boulevard Jarocho #101</strong>, Geo Villas del Puerto.
-               </p>
-
-               <br>
-
-               <div style="margin:15px 0; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);">
-                  <iframe width="100%" height="260" style="border:0;" loading="lazy" allowfullscreen
+               </form> <br>
+               <p style="color:var(--text-dark); margin-top: 20px;"> Nos ubicamos en <strong>Boulevard Jarocho
+                     #101</strong>, Geo Villas del Puerto. </p> <br>
+               <div style="margin:15px 0; border-radius:16px; overflow:hidden; box-shadow:var(--shadow);"> <iframe
+                     width="100%" height="260" style="border:0;" loading="lazy" allowfullscreen
                      referrerpolicy="no-referrer-when-downgrade"
                      src="https://maps.google.com/maps?q=19.151870195443006,-96.16774241651041&z=17&output=embed">
-                  </iframe>
-               </div>
-
-               <div style="text-align:center; margin-top:10px;">
-                  <a href="https://www.google.com/maps?q=19.151870195443006,-96.16774241651041" target="_blank"
+                  </iframe> </div>
+               <div style="text-align:center; margin-top:10px;"> <a
+                     href="https://www.google.com/maps?q=19.151870195443006,-96.16774241651041" target="_blank"
                      class="btn-primary"
-                     style="text-decoration:none; display:inline-block; width:auto; padding:12px 24px;">
-                     📍 Abrir en Google Maps
-                  </a>
-               </div>
-
+                     style="text-decoration:none; display:inline-block; width:auto; padding:12px 24px;"> 📍 Abrir en
+                     Google Maps </a> </div>
             </div>
-
          </div>
-
       </div>
-   </section>
-
-   <!-- FOOTER -->
-   <footer>
-      © 2025 Guardería Querubines — Todos los derechos reservados
-   </footer>
-
-   <!-- Botón flotante WhatsApp -->
-   <a href="https://wa.me/5212299036317?text=Buen%20d%C3%ADa%2C%20me%20interesa%20la%20guarder%C3%ADa%2C%20%C2%BFme%20podr%C3%ADa%20dar%20m%C3%A1s%20informes%20por%20favor%3F"
-      class="whatsapp-floating" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white">
+   </section> <!-- FOOTER -->
+   <footer> © 2025 Guardería Querubines — Todos los derechos reservados </footer> <!-- Botón flotante WhatsApp --> <a
+      href="https://wa.me/5212299036317?text=Buen%20d%C3%ADa%2C%20me%20interesa%20la%20guarder%C3%ADa%2C%20%C2%BFme%20podr%C3%ADa%20dar%20m%C3%A1s%20informes%20por%20favor%3F"
+      class="whatsapp-floating" target="_blank" rel="noopener"> <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 32 32" width="28" height="28" fill="white">
          <path
             d="M16 .396C7.164.396 0 7.56 0 16.396c0 2.888.76 5.708 2.204 8.188L0 32l7.63-2.167a15.94 15.94 0 0 0 8.37 2.33c8.836 0 16-7.164 16-16S24.836.396 16 .396zm0 29.208a13.19 13.19 0 0 1-6.728-1.84l-.482-.287-4.53 1.288 1.206-4.414-.314-.506a13.17 13.17 0 1 1 10.848 5.76zm7.19-9.89c-.394-.197-2.33-1.15-2.69-1.282-.36-.131-.623-.197-.886.197s-1.018 1.282-1.248 1.545c-.23.262-.46.295-.854.098-.394-.197-1.664-.613-3.17-1.954-1.172-1.045-1.963-2.336-2.193-2.73-.23-.394-.025-.607.173-.804.177-.176.394-.46.591-.689.197-.23.262-.394.394-.656.131-.262.066-.492-.033-.689-.098-.197-.886-2.135-1.214-2.924-.32-.77-.646-.666-.886-.678l-.755-.013c-.262 0-.689.098-1.05.492-.36.394-1.378 1.345-1.378 3.279s1.411 3.803 1.608 4.066c.197.262 2.778 4.244 6.732 5.95.941.406 1.675.648 2.247.83.944.3 1.804.258 2.484.157.758-.113 2.33-.951 2.66-1.87.328-.918.328-1.705.23-1.87-.098-.164-.36-.262-.754-.459z" />
-      </svg>
-   </a>
-
-
-
-   <!-- JS -->
-   <script>
-      // Reveal animation con corrección de fuga de memoria
-      (function () {
-         const revealUpElements = document.querySelectorAll('.reveal-up');
-
-         if (revealUpElements.length === 0) return;
-
-         const revealUpObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-               if (entry.isIntersecting) {
-                  entry.target.classList.add('show');
-                  observer.unobserve(entry.target);
-               }
-            });
-
-            // Desconectar observer cuando todos los elementos estén revelados
-            if (document.querySelectorAll('.reveal-up:not(.show)').length === 0) {
-               observer.disconnect();
-            }
-         }, { threshold: 0.15 });
-
-         revealUpElements.forEach(el => revealUpObserver.observe(el));
-      })();
-
-      // Manejo de formulario rápido
-      document.getElementById('quickForm').addEventListener('submit', async function (e) {
-         e.preventDefault();
-         const form = e.target;
-
-         try {
-            const response = await fetch(form.action, {
-               method: form.method,
-               body: new FormData(form),
-               headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-               alert('¡Gracias! Hemos recibido tu información y te contactaremos pronto.');
-               form.reset();
-            } else {
-               throw new Error('Error en el envío');
-            }
-         } catch (error) {
-            alert('Hubo un problema al enviar el formulario. Intenta nuevamente.');
-         }
-      });
-
-
-   </script>
-
+      </svg> </a> <!-- JS -->
+   <script> // Reveal animation con corrección de fuga de memoria (function () { const revealUpElements = document.querySelectorAll('.reveal-up'); if (revealUpElements.length === 0) return; const revealUpObserver = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('show'); observer.unobserve(entry.target); } }); // Desconectar observer cuando todos los elementos estén revelados if (document.querySelectorAll('.reveal-up:not(.show)').length === 0) { observer.disconnect(); } }, { threshold: 0.15 }); revealUpElements.forEach(el => revealUpObserver.observe(el)); })(); // Manejo de formulario rápido document.getElementById('quickForm').addEventListener('submit', async function (e) { e.preventDefault(); const form = e.target; try { const response = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } }); if (response.ok) { alert('¡Gracias! Hemos recibido tu información y te contactaremos pronto.'); form.reset(); } else { throw new Error('Error en el envío'); } } catch (error) { alert('Hubo un problema al enviar el formulario. Intenta nuevamente.'); } }); </script>
 </body>
 
 </html>
