@@ -533,6 +533,73 @@
          }
 
       }
+
+      /* Mensaje de éxito personalizado */
+      .success-message {
+         position: fixed;
+         inset: 0;
+         background: rgba(0, 0, 0, 0.4);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity .3s ease;
+         z-index: 9999;
+      }
+
+      .success-message.show {
+         opacity: 1;
+         pointer-events: auto;
+      }
+
+      .success-box {
+         background: white;
+         padding: 30px;
+         border-radius: 16px;
+         text-align: center;
+         max-width: 350px;
+         box-shadow: var(--shadow);
+         animation: popUp .3s ease;
+      }
+
+      .success-icon {
+         font-size: 2.5rem;
+         margin-bottom: 10px;
+      }
+
+      .success-box h3 {
+         color: var(--rosa);
+         margin-bottom: 10px;
+      }
+
+      .success-box p {
+         color: var(--text-dark);
+         margin-bottom: 20px;
+      }
+
+      .success-box button {
+         background: linear-gradient(135deg, var(--rosa), var(--naranja));
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         border-radius: 10px;
+         font-weight: bold;
+         cursor: pointer;
+         box-shadow: var(--shadow);
+      }
+
+      @keyframes popUp {
+         from {
+            transform: scale(0.8);
+            opacity: 0;
+         }
+
+         to {
+            transform: scale(1);
+            opacity: 1;
+         }
+      }
    </style>
 </head>
 
@@ -768,6 +835,17 @@
       </svg>
    </a>
 
+   <!-- Mensaje de éxito personalizado -->
+   <div id="successMessage" class="success-message">
+      <div class="success-box">
+         <div class="success-icon">✅</div>
+         <h3>¡Mensaje enviado!</h3>
+         <p>Gracias por contactarnos. Te responderemos muy pronto.</p>
+         <button onclick="closeSuccessMessage()">Cerrar</button>
+      </div>
+   </div>
+
+
 
 
    <!-- JS -->
@@ -808,7 +886,7 @@
             });
 
             if (response.ok) {
-               alert('¡Gracias! Hemos recibido tu información y te contactaremos pronto.');
+               document.getElementById('successMessage').classList.add('show');
                form.reset();
             } else {
                throw new Error('Error en el envío');
@@ -817,6 +895,11 @@
             alert('Hubo un problema al enviar el formulario. Intenta nuevamente.');
          }
       });
+
+      function closeSuccessMessage() {
+         document.getElementById('successMessage').classList.remove('show');
+      }
+
 
 
    </script>
