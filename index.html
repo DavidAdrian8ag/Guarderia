@@ -31,7 +31,6 @@
          color: #333;
       }
 
-      /* Utilidad para gradientes (elimina repetición) */
       .gradient-primary {
          background: linear-gradient(90deg, var(--rosa), var(--azul));
          -webkit-background-clip: text;
@@ -46,7 +45,6 @@
          color: transparent;
       }
 
-      /* Nav */
       .nav-minimal {
          display: flex;
          justify-content: center;
@@ -57,6 +55,7 @@
          position: sticky;
          top: 0;
          z-index: 999;
+         flex-wrap: wrap;
       }
 
       .nav-btn {
@@ -69,6 +68,8 @@
          min-height: 44px;
          display: flex;
          align-items: center;
+         justify-content: center;
+         text-align: center;
       }
 
       .azul-btn {
@@ -79,7 +80,6 @@
          background: var(--verde);
       }
 
-      /* Hero */
       .hero {
          display: grid;
          grid-template-columns: 1fr;
@@ -95,6 +95,7 @@
 
       .logo-hero {
          width: 300px;
+         max-width: 100%;
          display: block;
          margin: 0 auto 12px;
       }
@@ -103,6 +104,7 @@
          font-size: 2.7rem;
          font-weight: 700;
          margin-bottom: 10px;
+         line-height: 1.15;
       }
 
       p.lead {
@@ -119,7 +121,6 @@
          color: #333;
       }
 
-      /* Sections */
       section {
          max-width: 1100px;
          margin: auto;
@@ -132,13 +133,6 @@
          font-weight: 700;
       }
 
-      /* MVV Section */
-      .mvv-section {
-         max-width: 1100px;
-         margin: 0 auto 50px;
-         padding: 0 18px;
-      }
-
       .mvv-grid {
          display: grid;
          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -146,7 +140,6 @@
          margin-top: 25px;
       }
 
-      /* Card base */
       .card-base {
          background: linear-gradient(135deg, #ffffff, #fff1fb);
          border-radius: 20px;
@@ -160,66 +153,12 @@
          box-shadow: 0 20px 36px rgba(0, 0, 0, .15);
       }
 
-      .mvv-card {
-         text-align: center;
-      }
-
-      .mvv-icon {
-         font-size: 2.6rem;
-         width: 70px;
-         height: 70px;
-         border-radius: 16px;
-         display: grid;
-         place-items: center;
-         margin: 0 auto 12px;
-         background: #fff;
-         box-shadow: var(--shadow);
-      }
-
-      .mvv-title {
-         font-size: 1.25rem;
-         font-weight: 700;
-         margin-bottom: 8px;
-      }
-
-      .mvv-text {
-         font-size: .95rem;
-         color: var(--text-dark);
-         line-height: 1.38rem;
-      }
-
-      /* CTA Prominente tras MVV */
-      .cta-prominent {
-         text-align: center;
-         margin: 40px 0;
-      }
-
-      .cta-prominent .btn-primary {
-         padding: 16px 40px;
-         font-size: 1.1rem;
-         min-height: 44px;
-         min-width: 44px;
-      }
-
-      /* Services - Carrusel horizontal */
-      .services-section {
-         position: relative;
-         padding: 0 18px 30px;
-      }
-
-      .services-container {
-         max-width: 1100px;
-         margin: auto;
-      }
-
       .services-carousel {
          display: grid;
          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
          gap: 20px;
          padding: 20px 0;
       }
-
-
 
       .service-item {
          background: white;
@@ -230,12 +169,7 @@
          min-height: 250px;
          display: flex;
          flex-direction: column;
-      }
-
-
-      .service-item:hover {
-         transform: translateY(-8px);
-         box-shadow: 0 20px 36px rgba(0, 0, 0, .15);
+         text-align: center;
       }
 
       .service-icon-circle {
@@ -250,217 +184,29 @@
          margin: 0 auto 16px;
       }
 
-
-      .service-item h3 {
-         font-size: 1.15rem;
-         font-weight: 700;
-         margin: 0 0 12px 0;
-         color: #333;
-      }
-
-      .service-item p {
-         font-size: 0.95rem;
-         color: var(--text-dark);
-         line-height: 1.5;
-         margin: 0;
-         flex-grow: 1;
-      }
-
-      .scroll-hint {
-         text-align: center;
-         color: var(--muted);
-         font-size: 0.85rem;
-         margin-top: 12px;
-      }
-
-      /* Reveal animation */
-      .reveal-up {
-         opacity: 0;
-         transform: translateY(30px);
-         transition: opacity .8s ease, transform .8s ease;
-      }
-
-      .reveal-up.show {
-         opacity: 1;
-         transform: translateY(0);
-      }
-
-      /* Contact - Formulario optimizado */
       .contact-wrap {
          display: flex;
          flex-direction: row-reverse;
          gap: 24px;
       }
 
-      .contact-form-section {
-         flex: 1;
-      }
-
-      .form-quick {
-         background: white;
-         padding: 24px;
-         box-shadow: var(--shadow);
-         border-radius: 16px;
-         margin-bottom: 20px;
-      }
-
-      .form-quick h3 {
-         margin-top: 0;
-         color: var(--rosa);
-         font-size: 1.2rem;
-      }
-
       .form-fields {
          display: grid;
          grid-template-columns: 1fr 1fr;
          gap: 16px;
-         margin-bottom: 16px;
       }
 
-      .form-fields input {
+      input,
+      button,
+      textarea {
+         font-family: inherit;
+      }
+
+      iframe {
          width: 100%;
-         padding: 12px;
-         border-radius: 10px;
-         border: 2px solid #ddd;
-         font-size: 0.95rem;
-         min-height: 44px;
-         transition: border-color .2s;
-      }
-
-      .form-fields input:focus {
-         outline: none;
-         border-color: var(--azul);
-      }
-
-      .btn-primary {
-         width: 100%;
-         padding: 14px;
-         background: linear-gradient(135deg, var(--rosa), var(--naranja));
-         color: #fff;
-         border: none;
-         border-radius: 10px;
-         font-size: 1rem;
-         font-weight: 700;
-         cursor: pointer;
-         box-shadow: var(--shadow);
-         transition: transform .2s ease, box-shadow .2s ease;
-         min-height: 44px;
-      }
-
-      .btn-primary:hover {
-         transform: translateY(-3px);
-         box-shadow: 0 10px 22px rgba(0, 0, 0, .15);
-      }
-
-
-      .whatsapp-cta {
-         display: block;
-         width: 100%;
-         padding: 16px;
-         background: var(--verde);
-         color: #fff;
-         text-decoration: none;
-         border-radius: 10px;
-         text-align: center;
-         font-weight: 700;
-         box-shadow: var(--shadow);
-         transition: transform .2s, box-shadow .2s;
-         min-height: 44px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         margin-bottom: 20px;
-      }
-
-      .whatsapp-cta:hover {
-         transform: translateY(-3px);
-         box-shadow: 0 10px 22px rgba(0, 0, 0, .15);
-      }
-
-      .form-complete {
-         background: white;
-         padding: 18px;
-         box-shadow: var(--shadow);
-         border-radius: 16px;
-         display: none;
-      }
-
-      .form-complete.active {
-         display: block;
-      }
-
-      .form-complete label {
-         font-weight: 600;
-         color: var(--rosa);
-      }
-
-      .form-complete input,
-      .form-complete textarea {
-         width: 100%;
-         padding: 10px;
-         border-radius: 10px;
-         border: 1px solid #ddd;
-         margin-bottom: 12px;
-         margin-top: 6px;
-         font-size: .95rem;
-      }
-
-      .form-complete textarea {
-         resize: none;
-         height: 120px;
-      }
-
-      .toggle-form {
-         text-align: center;
-         margin-top: 16px;
-      }
-
-      .toggle-form button {
-         background: none;
-         border: none;
-         color: var(--azul);
-         font-weight: 600;
-         cursor: pointer;
-         text-decoration: underline;
-         padding: 8px;
-      }
-
-      .contact-info {
-         background: white;
-         padding: 24px;
-         border-radius: 16px;
-         box-shadow: var(--shadow);
-      }
-
-      .contact-info h3 {
-         margin-top: 0;
-      }
-
-      .contact-info p {
-         color: var(--text-dark);
-      }
-
-      .phone-number {
-         font-size: 1.4rem;
-         color: #333;
-         font-weight: 700;
-         text-align: center;
-         margin: 16px 0;
-      }
-
-      .contact-info img {
-         border-radius: 10px;
-         box-shadow: var(--shadow);
          max-width: 100%;
-         height: auto;
       }
 
-      .contact-info iframe {
-         margin-top: 15px;
-         border-radius: 16px;
-      }
-
-      /* Botón flotante WhatsApp */
       .whatsapp-floating {
          position: fixed;
          bottom: 20px;
@@ -472,17 +218,8 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         font-size: 1.8rem;
-         cursor: pointer;
          box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
          z-index: 998;
-         text-decoration: none;
-         transition: transform .2s, box-shadow .2s;
-      }
-
-      .whatsapp-floating:hover {
-         transform: scale(1.1);
-         box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
       }
 
       footer {
@@ -491,6 +228,10 @@
          padding: 16px;
          text-align: center;
       }
+
+      /* ========================= */
+      /* MEJORAS RESPONSIVE EXTRA */
+      /* ========================= */
 
       @media (max-width: 768px) {
          .contact-wrap {
@@ -509,14 +250,48 @@
             padding: 10px 14px;
             font-size: 0.9rem;
          }
+      }
 
-         .service-item {
-            flex: 0 0 240px;
-            min-height: 260px;
+      @media (max-width: 480px) {
+
+         section {
+            padding: 10px 12px 24px;
+         }
+
+         .logo-hero {
+            width: 200px;
+         }
+
+         h1 {
+            font-size: 1.6rem;
+            line-height: 1.2;
+         }
+
+         h2 {
+            font-size: 1.5rem;
+         }
+
+         .badge {
+            font-size: 0.85rem;
+            padding: 6px 10px;
+         }
+
+         .nav-minimal {
+            gap: 10px;
+         }
+
+         .nav-btn {
+            width: 100%;
+         }
+
+         .whatsapp-floating {
+            width: 52px;
+            height: 52px;
          }
       }
    </style>
 </head>
+
 
 <body>
 
