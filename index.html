@@ -69,6 +69,8 @@
          min-height: 44px;
          display: flex;
          align-items: center;
+         justify-content: center; /* Asegura el centrado horizontal */
+         text-align: center;      /* Centra el texto */
       }
 
       .azul-btn {
@@ -223,8 +225,6 @@
          padding: 20px 0;
       }
 
-
-
       .service-item {
          background: white;
          border-radius: 16px;
@@ -235,7 +235,6 @@
          display: flex;
          flex-direction: column;
       }
-
 
       .service-item:hover {
          transform: translateY(-8px);
@@ -253,7 +252,6 @@
          box-shadow: var(--shadow);
          margin: 0 auto 16px;
       }
-
 
       .service-item h3 {
          font-size: 1.15rem;
@@ -314,8 +312,6 @@
          box-sizing: border-box;
       }
 
-
-
       .form-quick {
          background: #f0f7ff;
          /* azul muy claro */
@@ -373,7 +369,6 @@
          transform: translateY(-3px);
          box-shadow: 0 10px 22px rgba(0, 0, 0, .15);
       }
-
 
       .whatsapp-cta {
          display: block;
@@ -527,26 +522,27 @@
             font-size: 2rem;
          }
 
-         .nav-btn {
-            padding: 10px 14px;
-            font-size: 0.9rem;
-         }
-
          .service-item {
             flex: 0 0 240px;
             min-height: 260px;
          }
 
+         /* --- CAMBIO SOLICITADO --- */
          .nav-minimal {
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row; /* En lugar de column */
+            align-items: stretch;
             gap: 10px;
+            padding: 12px;
          }
 
          .nav-btn {
-            width: auto;
+            flex: 1;             /* Hace que ambos botones ocupen el mismo ancho */
+            padding: 10px 14px;
+            font-size: 0.9rem;
             justify-content: center;
+            text-align: center;
          }
+         /* ------------------------- */
       }
 
       /* Ajustes extra para pantallas muy pequeñas */
@@ -565,6 +561,11 @@
             line-height: 1.2;
          }
 
+         /* Ajuste adicional para que el texto no se rompa feo */
+         .nav-btn {
+            font-size: 0.75rem;
+            padding: 8px 4px;
+         }
       }
 
       /* Mensaje de éxito personalizado */
@@ -660,13 +661,11 @@
 
 <body>
 
-   <!-- NAV -->
    <nav class="nav-minimal">
       <a href="#servicios" class="nav-btn azul-btn">Descubre nuestros servicios</a>
       <a href="#contacto" class="nav-btn verde-btn">Solicita tu información</a>
    </nav>
 
-   <!-- HERO -->
    <main class="hero centro">
       <div>
          <img src="Logo Simple lite.png" alt="Logo Guardería" class="logo-hero">
@@ -684,7 +683,6 @@
       </div>
    </main>
 
-   <!-- MISIÓN, VISIÓN Y VALORES -->
    <section class="mvv-section">
       <h2 class="gradient-secondary">Misión, Visión y Valores</h2>
 
@@ -718,7 +716,6 @@
 
    </section>
 
-   <!-- SERVICIOS - CARRUSEL -->
    <section class="services-section" id="servicios">
       <div class="services-container">
          <h2 class="gradient-secondary">Servicios</h2>
@@ -796,7 +793,6 @@
       </div>
    </section>
 
-   <!-- CONTACTO -->
    <section id="contacto">
       <h2 class="gradient-secondary">Contacto</h2>
 
@@ -834,7 +830,6 @@
 
          <div class="contact-form-section">
 
-            <!-- Formulario Rápido -->
             <div class="form-quick">
                <h3>¿Quieres que te contactemos?</h3>
                <form class="quick-contact-form" id="quickForm" action="https://formspree.io/f/xeowkgad" method="POST">
@@ -876,12 +871,10 @@
       </div>
    </section>
 
-   <!-- FOOTER -->
    <footer>
       © 2025 Guardería Querubines — Todos los derechos reservados
    </footer>
 
-   <!-- Botón flotante WhatsApp -->
    <a href="https://wa.me/5212299036317?text=Buen%20d%C3%ADa%2C%20me%20interesa%20la%20guarder%C3%ADa%2C%20%C2%BFme%20podr%C3%ADa%20dar%20m%C3%A1s%20informes%20por%20favor%3F"
       class="whatsapp-floating" target="_blank" rel="noopener">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white">
@@ -890,7 +883,6 @@
       </svg>
    </a>
 
-   <!-- Mensaje de éxito personalizado -->
    <div id="successMessage" class="success-message">
       <div class="success-box">
          <div class="success-icon">✅</div>
@@ -903,7 +895,6 @@
 
 
 
-   <!-- JS -->
    <script>
       // Reveal animation con corrección de fuga de memoria
       (function () {
