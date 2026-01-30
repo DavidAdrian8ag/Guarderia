@@ -132,6 +132,10 @@
          font-weight: 700;
       }
 
+      h3 {
+         text-align: center;
+      }
+
       /* MVV Section */
       .mvv-section {
          max-width: 1100px;
@@ -288,26 +292,44 @@
       /* Contact - Formulario optimizado */
       .contact-wrap {
          display: flex;
-         flex-direction: row-reverse;
          gap: 24px;
+         align-items: stretch;
+         /* Esto obliga a que ambos hijos tengan la misma altura */
       }
 
-      .contact-form-section {
+      .contact-form-section,
+      .contact-info {
          flex: 1;
+         display: flex;
       }
+
+      .contact-form-section>div,
+      .contact-info {
+         width: 100%;
+         height: 100%;
+      }
+
+      .contact-info {
+         justify-content: space-between;
+         box-sizing: border-box;
+      }
+
+
 
       .form-quick {
-         background: white;
+         background: #f0f7ff;
+         /* azul muy claro */
          padding: 24px;
          box-shadow: var(--shadow);
          border-radius: 16px;
          margin-bottom: 20px;
+         border: 2px solid #d6ebff;
+         /* borde suave */
       }
 
       .form-quick h3 {
-         margin-top: 0;
-         color: var(--rosa);
-         font-size: 1.2rem;
+         border-bottom: 2px solid #d6ebff;
+         padding-bottom: 8px;
       }
 
       .form-fields {
@@ -514,6 +536,17 @@
             flex: 0 0 240px;
             min-height: 260px;
          }
+
+         .nav-minimal {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+         }
+
+         .nav-btn {
+            width: auto;
+            justify-content: center;
+         }
       }
 
       /* Ajustes extra para pantallas muy pequeñas */
@@ -599,6 +632,28 @@
             transform: scale(1);
             opacity: 1;
          }
+      }
+
+      /* Igualar altura de tarjetas en Contacto */
+      .contact-wrap {
+         display: flex;
+         gap: 24px;
+         align-items: stretch;
+      }
+
+      .contact-form-section,
+      .contact-info {
+         flex: 1;
+         display: flex;
+      }
+
+      .contact-form-section {
+         flex-direction: column;
+      }
+
+      .contact-info {
+         flex-direction: column;
+         justify-content: space-between;
       }
    </style>
 </head>
@@ -748,7 +803,7 @@
       <div class="contact-wrap">
 
          <div class="contact-info">
-            <h3>Contáctanos</h3>
+            <h3>Llámanos</h3>
 
             <p style="color:var(--muted); font-weight:600; margin-top: 20px;">
                ¿Prefieres atención directa? <br>
@@ -781,7 +836,7 @@
 
             <!-- Formulario Rápido -->
             <div class="form-quick">
-               <h3>📞 Contacto Rápido</h3>
+               <h3>¿Quieres que te contactemos?</h3>
                <form class="quick-contact-form" id="quickForm" action="https://formspree.io/f/xeowkgad" method="POST">
                   <div class="form-fields">
                      <input type="text" name="nombre" placeholder="Tu nombre*" required minlength="3">
